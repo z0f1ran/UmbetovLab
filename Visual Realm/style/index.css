@@ -24,9 +24,12 @@
     width: 100%;
 }
 
+.lodo-headder{
+    width: 300px;
+}
+
 .content-headder {
     display: flex;
-    align-items: center;
     justify-content: space-between;
     align-items: flex-end;
 
@@ -44,7 +47,7 @@
     background-color: white;
     color: rgb(78, 74, 62);
     font-family: 'Roboto', sans-serif;
-    font-size: 210%;
+    font-size: 28px;
     font-weight: 500;
     line-height: 33px;
     letter-spacing: 0px;
@@ -84,6 +87,7 @@
     height: 400px;
     width: 100%;   
 }
+
 #text-main-banner{
     color: rgb(251, 251, 255);
     font-family: 'Outfit', sans-serif;
@@ -111,7 +115,7 @@
     
     width: 30%;
     max-width: 450px;
-    min-width: 300px;
+    min-width: 350px;
     height: 330px;
 
     margin: 20px;
@@ -185,4 +189,82 @@
     padding-right: 50px;
     height: 52px;
     background: rgb(45, 43, 36);
+}
+
+@media (max-width: 1199px) {
+    .content-headder{
+        flex-direction: column;
+        align-items: center;
+    }
+    .container-nav-button-headder {
+        width: 100%;
+    }
+    .meta-block {
+        height: 30%;
+    }
+}
+@media (max-width: 850px) {
+    .container-nav-button-headder {
+        flex-direction: column;
+        align-items: center;
+    }
+    #text-main-banner{
+        font-size: 40px;
+    }
+    .banner {
+        height: 300px;   
+    }
+}
+@media (max-width: 400px) {
+    #text-main-banner{
+        font-size: 25px;
+        height: 200px;
+        line-height: 60px;
+        margin-bottom: 30px;
+    }
+    .lodo-headder{
+        width: 200px;
+    }
+    .nav-button-headder{
+        font-size: 20px;
+    
+        height: 35px;
+        padding: 0px 5px 5px 5px;
+    }
+    .banner {
+        height: 200px;  
+        padding-top: 30px; 
+    }
+    .block-content {
+        width: 100%;
+        max-width: 450px;
+        min-width: 200px;
+        height: 300px;
+    
+        margin: 20px;
+    }
+    .block-img{
+        height: 70%;
+    }
+    .meta-block {
+        height: 30%;
+    }
+    .left-content {
+        flex-direction: column;
+        padding: 5px;
+    }
+    .block-buttons {
+        flex-direction: column;
+    }
+    .button-watch,.button-profile {
+        height: 20px;
+        margin: 2px;
+        width: 100%;
+    }
+    .tags{
+        padding: 20px;
+    }
+    #text-main-banner{    
+        width: 300px;
+    }
 }
