@@ -68,7 +68,7 @@
     align-items: center;
     flex-direction: column;
 
-    background: url(../assets/image/backround-main3.jpg);
+    background: url(../assets/image/backround-main3.webp);
     background-size: cover;
     background-repeat: repeat-x;
 
@@ -80,7 +80,7 @@
     justify-content: center;
     align-items: center;
 
-    background-image: url(../assets/image/banner.png);
+    background-image: url(../assets/image/banner.webp);
     background-repeat: no-repeat;
     background-size: cover;
     
