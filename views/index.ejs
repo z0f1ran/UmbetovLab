@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style/index.css">
+    <link rel="stylesheet" href="style/Clear.css">
+
+    <meta name="autor" content="Valkyrie (Егор Бордюков)">
+    <meta name="description" content="Свёрстанный макет на тему Онлайн галерея для тренировки">
+    <meta name="Keywords" content="онлайн,галерея,картины,верстка,макет сайта">
+
+    <title>Visual Realm</title>
+</head>
+<body id="body">
+    <div id="headder">
+        <div class="content-headder">
+            <img class="lodo-headder" src="./assets/image/logo.svg" alt="Visual Realm">
+            <div class="container-nav-button-headder">
+                <button class="nav-button-headder">Главная</button>
+                <button class="nav-button-headder">Выставка</button>
+                <button class="nav-button-headder">Информация</button>
+                <button class="nav-button-headder">Регистрация</button>
+            </div>
+        </div>
+    </div>
+    <div id="main">
+        <div class="banner">
+            <p id="text-main-banner">Онлайн галерея для публикации ваших работ</p>
+        </div>
+
+        <!-- Ширина изображения в блоке 400px
+        высота 264px -->
+
+        <div class="main-content"> 
+            <% data.forEach(item => { %>
+                <div class="block-content">
+                    <!-- вот изображение  -->
+                    <img class="block-img" src="<%= item.imageLink %>" alt="<%= item.name %>">
+                    <div class="meta-block">
+                        <div class="left-content">
+                            <!-- вот имя автора  -->
+                            <p class="nameAuthor"><%= item.autor %></p>
+                            <div class="block-buttons">
+                                <button class="button-watch"><img src="./assets/image/button.svg" alt="Кнопка - посмотреть"></button>
+                                <button class="button-profile"><img src="./assets/image/button2.svg" alt="Кнопка - автор"></button>
+                            </div>
+                        </div>
+                        <!-- вот теги --> 
+                        <div class="tags">
+                            <p class="tag">#живопись</p>
+                            <p class="tag">#маслом</p>
+                            <p class="tag">#море</p>
+                            <p class="tag">#закат</p>
+                            <p class="tag">#пейзаж</p>
+                            <p class="tag">#иванов</p>
+                        </div>
+                    </div>   
+                </div>
+            <% }); %>
+            
+        </div>
+    </div>
+    <div class="footer">
+        <p class="nameAuthor" style="color: aliceblue; margin: 10px;">Valkyrie</p>
+        <a href="https://t.me/+FMChetgtqQBmMTFi">
+            <img src="./assets/image/telegram.svg" alt="telegram">
+        </a>
+    </div>
+</body>
+</html>

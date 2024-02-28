@@ -24,7 +24,7 @@ db.connect((err) => {
 
 // Создание таблицы, если она не существует
 db.query(
-  'CREATE TABLE IF NOT EXISTS picture (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), description TEXT, imageLink VARCHAR(255))',
+  'CREATE TABLE IF NOT EXISTS picture (id INT AUTO_INCREMENT PRIMARY KEY, author VARCHAR(255), name VARCHAR(255), imageLink VARCHAR(255))',
   (err) => {
     if (err) {
       console.error('Error creating table:', err);
@@ -38,12 +38,12 @@ db.query(
 
 // Создание (Create)
 app.post('/pictures', (req, res) => {
-  const { name, description, imageLink } = req.body;
-  db.query('INSERT INTO picture (name, description, imageLink) VALUES (?, ?, ?)', [name, description, imageLink], (err, result) => {
+  const { name, author, imageLink } = req.body;
+  db.query('INSERT INTO picture (name, author, imageLink) VALUES (?, ?, ?)', [name, author, imageLink], (err, result) => {
     if (err) {
       res.status(500).json({ error: err.message });
     } else {
-      res.json({ id: result.insertId, name, description, imageLink });
+      res.json({ id: result.insertId, name, author, imageLink });
     }
   });
 });
@@ -54,23 +54,23 @@ app.get('/pictures', (req, res) => {
     if (err) {
       res.status(500).json({ error: err.message });
     } else {
-      res.render('test_template', {data})
+      res.render('index', {data})
     }
   });
 });
 
 // Обновление (Update)
 app.put('/pictures/:id', (req, res) => {
-  const { name, description, imageLink } = req.body;
+  const { name, author, imageLink } = req.body;
   const itemId = req.params.id;
   db.query(
-    'UPDATE picture SET name = ?, description = ?,  imageLink = ? WHERE id = ?',
-    [name, description, imageLink, itemId],
+    'UPDATE picture SET name = ?, author = ?,  imageLink = ? WHERE id = ?',
+    [name, author, imageLink, itemId],
     (err) => {
       if (err) {
         res.status(500).json({ error: err.message });
       } else {
-        res.json({ id: itemId, name, description, imageLink });
+        res.json({ id: itemId, name, author, imageLink });
       }
     }
   );
