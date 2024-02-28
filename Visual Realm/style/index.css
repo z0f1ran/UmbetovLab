@@ -1,0 +1,270 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('../assets/fonts/Roboto-Medium.ttf') format('woff');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Outfit';
+    src: url('../assets/fonts/Outfit-VariableFont_wght.ttf') format('woff');
+    font-weight: 400;
+}
+
+#body{
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100%;
+}
+
+#headder{
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+}
+
+.lodo-headder{
+    width: 300px;
+}
+
+.content-headder {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    width: 82%;
+}
+
+.container-nav-button-headder {
+    display: flex;
+    justify-content: space-between;
+
+    width: 68%;
+}
+
+.nav-button-headder{
+    background-color: white;
+    color: rgb(78, 74, 62);
+    font-family: 'Roboto', sans-serif;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 33px;
+    letter-spacing: 0px;
+    text-align: left;
+
+    height: 65px;
+    padding: 20px;
+    padding-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-button-headder:hover{
+    background-color: rgb(200, 200, 200);
+}
+
+#main{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    background: url(../assets/image/backround-main3.webp);
+    background-size: cover;
+    background-repeat: repeat-x;
+
+    width: 100%; 
+}
+
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url(../assets/image/banner.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    height: 400px;
+    width: 100%;   
+}
+
+#text-main-banner{
+    color: rgb(251, 251, 255);
+    font-family: 'Outfit', sans-serif;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 89px;
+    letter-spacing: 5px;
+    text-align: center;
+
+    width: 730px;
+}
+
+.main-content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    width: 100%;
+}
+.block-content {
+    display: flex;
+    flex-direction: column;
+
+    background: rgb(251, 251, 255);
+    
+    width: 30%;
+    max-width: 450px;
+    min-width: 350px;
+    height: 330px;
+
+    margin: 20px;
+}
+.block-img{
+    height: 80%;
+    width: 100%;
+}
+.meta-block {
+    display: flex;
+    justify-content: space-between;
+    height: 20%;
+}
+.left-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.nameAuthor {
+    color: rgb(13, 1, 6);
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0px;
+    text-align: center;
+}
+
+.block-buttons {
+    display: flex;
+}
+
+.button-watch,.button-profile {
+    background: rgb(251, 251, 255);
+    height: 23px;
+}
+
+.button-watch{
+    margin-right: 10px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    width: 210px;
+    padding: 6px;
+}
+
+.tag {
+    margin: 3px;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    color: rgb(142, 137, 137);
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+    letter-spacing: 0px;
+    text-align: center;
+}
+
+.footer{
+    display: flex;
+    justify-content: flex-end;
+    color: aliceblue;
+    padding: 5px;
+    padding-right: 50px;
+    height: 52px;
+    background: rgb(45, 43, 36);
+}
+
+@media (max-width: 1199px) {
+    .content-headder{
+        flex-direction: column;
+        align-items: center;
+    }
+    .container-nav-button-headder {
+        width: 100%;
+    }
+    .meta-block {
+        height: 30%;
+    }
+}
+@media (max-width: 850px) {
+    .container-nav-button-headder {
+        flex-direction: column;
+        align-items: center;
+    }
+    #text-main-banner{
+        font-size: 40px;
+    }
+    .banner {
+        height: 300px;   
+    }
+}
+@media (max-width: 400px) {
+    #text-main-banner{
+        font-size: 25px;
+        height: 200px;
+        line-height: 60px;
+        margin-bottom: 30px;
+    }
+    .lodo-headder{
+        width: 200px;
+    }
+    .nav-button-headder{
+        font-size: 20px;
+    
+        height: 35px;
+        padding: 0px 5px 5px 5px;
+    }
+    .banner {
+        height: 200px;  
+        padding-top: 30px; 
+    }
+    .block-content {
+        width: 100%;
+        max-width: 450px;
+        min-width: 200px;
+        height: 300px;
+    
+        margin: 20px;
+    }
+    .block-img{
+        height: 70%;
+    }
+    .meta-block {
+        height: 30%;
+    }
+    .left-content {
+        flex-direction: column;
+        padding: 5px;
+    }
+    .block-buttons {
+        flex-direction: column;
+    }
+    .button-watch,.button-profile {
+        height: 20px;
+        margin: 2px;
+        width: 100%;
+    }
+    .tags{
+        padding: 20px;
+    }
+    #text-main-banner{    
+        width: 300px;
+    }
+}
