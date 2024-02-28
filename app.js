@@ -2,9 +2,12 @@ const express = require('express');
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 const config = require('./config');
+const ejs = require('ejs')
 
 const app = express();
 const port = 3000;
+
+app.set('view engine', 'ejs');
 
 app.use(bodyParser.json());
 
@@ -47,11 +50,11 @@ app.post('/pictures', (req, res) => {
 
 // Чтение (Read)
 app.get('/pictures', (req, res) => {
-  db.query('SELECT * FROM picture', (err, results) => {
+  db.query('SELECT * FROM picture', (err, data) => {
     if (err) {
       res.status(500).json({ error: err.message });
     } else {
-      res.json(results);
+      res.render('test_template', {data})
     }
   });
 });
