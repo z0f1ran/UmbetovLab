@@ -11,107 +11,127 @@
     <div class="admin-table">
         <table>
             <thead>
-              <tr>
-                <th>admin panel</th>
-              </tr>
+                <tr>
+                    <th>admin panel</th>
+                </tr>
             </thead>
             <tbody>
-              <tr>
-                <td align="center">
-                    add a picture
+                <tr>
+                    <td align="center">
+                        <h4>add a picture</h4>
                     
-                    <form action="#" method="POST" enctype="multipart/form-data">
-                        <input type="file" name="image" accept="image/*">
-                    </form>
-                </td>
-              </tr>
-              <tr>
-                <td align="center">
-                    enter the author's name
+                        <form>
+                            <input type="url" id="imageLink" placeholder="Введите ссылку на изображение">
+                            <input type="submit" value="Загрузить по ссылке">
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        enter the author's name
                     
-                    <form action="#" method="POST" enctype="multipart/form-data">
-                        <input type="text" id="author" name="author">
-                    </form>
-                </td>
-              </tr>
-              <tr>
-                <td align="center">
-                    enter up to 6 tags
+                        <form>
+                            <input type="text" id="author" name="author">
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        enter up to 6 tags
                     
-                    <form action="#" method="POST" enctype="multipart/form-data">
-                        tag <input type="text" id="teg" name="teg"><br>
-                        tag <input type="text" id="teg" name="teg"><br>
-                        tag <input type="text" id="teg" name="teg"><br>
-                        tag <input type="text" id="teg" name="teg"><br>
-                        tag <input type="text" id="teg" name="teg"><br>
-                        tag <input type="text" id="teg" name="teg"><br>
-                    </form>
-                </td>
-              </tr>
-              <tr>
-                <td align="center">
-                    <input type="submit" value="add to the site">
-                </td>
-              </tr>
-              <tr>
-                <td align="center">
-                    <h2>other publications on the site</h2> <br>
-                    <h3>click on the cross at the bottom to delete the post from the site</h3>
-                </td>
-              </tr>
-              <tr>
-                <td align="center">
-                    <!-- другие публикации на сайте  -->
-                    <div class="block-content">
-                        <div class="container">
-                            <img src="/public/assets/image/favicon.jpg" alt="Фото">
-                            <div class="btn-close" onclick="this.parentNode.remove()">&#10006;</div>
-                        </div>
-                        <div class="container">
-                            <img src="/public/assets/image/favicon.jpg" alt="Фото">
-                            <div class="btn-close" onclick="this.parentNode.remove()">&#10006;</div>
-                        </div>
-                        <div class="container">
-                            <img src="/public/assets/image/favicon.jpg" alt="Фото">
-                            <div class="btn-close" onclick="this.parentNode.remove()">&#10006;</div>
-                        </div>
-                        <div class="container">
-                            <img src="/public/assets/image/favicon.jpg" alt="Фото">
-                            <div class="btn-close" onclick="this.parentNode.remove()">&#10006;</div>
-                        </div>
-                        <div class="container">
-                            <img src="/public/assets/image/favicon.jpg" alt="Фото">
-                            <div class="btn-close" onclick="this.parentNode.remove()">&#10006;</div>
-                        </div>
-                        <div class="container">
-                            <img src="/public/assets/image/favicon.jpg" alt="Фото">
-                            <div class="btn-close" onclick="this.parentNode.remove()">&#10006;</div>
-                        </div>
-                        <div class="container">
-                            <img src="/public/assets/image/favicon.jpg" alt="Фото">
-                            <div class="btn-close" onclick="this.parentNode.remove()">&#10006;</div>
-                        </div>
-                        <div class="container">
-                            <img src="/public/assets/image/favicon.jpg" alt="Фото">
-                            <div class="btn-close" onclick="this.parentNode.remove()">&#10006;</div>
-                        </div>
-                        <div class="container">
-                            <img src="/public/assets/image/favicon.jpg" alt="Фото">
-                            <div class="btn-close" onclick="this.parentNode.remove()">&#10006;</div>
-                        </div>
-                        <div class="container">
-                            <img src="/public/assets/image/favicon.jpg" alt="Фото">
-                            <div class="btn-close" onclick="this.parentNode.remove()">&#10006;</div>
-                        </div>
-                        <div class="container">
-                            <img src="/public/assets/image/favicon.jpg" alt="Фото">
-                            <div class="btn-close" onclick="this.parentNode.remove()">&#10006;</div>
-                        </div>
-                    </div>
-                </td>
-              </tr>
+                        <form>
+                            tag <input type="text" id="teg" name="teg"><br>
+                            tag <input type="text" id="teg" name="teg"><br>
+                            tag <input type="text" id="teg" name="teg"><br>
+                            tag <input type="text" id="teg" name="teg"><br>
+                            tag <input type="text" id="teg" name="teg"><br>
+                            tag <input type="text" id="teg" name="teg"><br>
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <input type="submit" value="add to the site">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <h2>other publications on the site</h2> <br>
+                        <h3>click on the cross at the bottom to delete the post from the site</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <!-- другие публикации на сайте  -->
+                        <div class="block-content">
+                            <table class="container">
+                                <tr>
+                                    <td><a href="ссылка_на_изображение"><img src="/public/assets/image/favicon.jpg" alt="Фото"></a></td>
+                                </tr>
+                                <tr>
+                                    <td>Имя автора</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="tag">Тег1</span>
+                                        <span class="tag">Тег2</span>
+                                        <span class="tag">Тег3</span>
+                                        <span class="tag">Тег4</span>
+                                        <span class="tag">Тег5</span>
+                                        <span class="tag">Тег6</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><button>удалить</button></td>
+                                </tr>
+                            </table>
+                            <table class="container">
+                                <tr>
+                                    <td><a href="ссылка_на_изображение"><img src="/public/assets/image/favicon.jpg" alt="Фото"></a></td>
+                                </tr>
+                                <tr>
+                                    <td>Имя автора</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="tag">Тег1</span>
+                                        <span class="tag">Тег2</span>
+                                        <span class="tag">Тег3</span>
+                                        <span class="tag">Тег4</span>
+                                        <span class="tag">Тег5</span>
+                                        <span class="tag">Тег6</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><button>удалить</button></td>
+                                </tr>
+                            </table>
+                            <table class="container">
+                                <tr>
+                                    <td><a href="ссылка_на_изображение"><img src="/public/assets/image/favicon.jpg" alt="Фото"></a></td>
+                                </tr>
+                                <tr>
+                                    <td>Имя автора</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="tag">Тег1</span>
+                                        <span class="tag">Тег2</span>
+                                        <span class="tag">Тег3</span>
+                                        <span class="tag">Тег4</span>
+                                        <span class="tag">Тег5</span>
+                                        <span class="tag">Тег6</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><button>удалить</button></td>
+                                </tr>
+                            </table>
+                        </div> 
+                    </td>
+                </tr>
             </tbody>
-          </table>                    
+        </table>                    
     </div>
 </body>
 </html>
