@@ -14,7 +14,7 @@ body{
 }
 
 table{
-    width: 50%;
+    width: 100%;
     border-collapse: collapse;
     background-color: aliceblue;
 }
@@ -29,7 +29,7 @@ th, td h3{
 }
 
 th, td img{
-    width: 20px;
+    width: 200px;
 }
   
 th{

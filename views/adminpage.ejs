@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="/style/admintable.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+</head>
+<body>
+    <div class="admin-table">
+        <form method="post" action="/process">
+            <h4>Add a Picture</h4>
+            <input type="text" name="name" placeholder="Enter name">
+            <input type="url" name="imageLink" placeholder="Enter image URL">
+            <input type="text" name="author" placeholder="Enter author's name">
+            <input type="text" name="tags" placeholder="Enter tags (comma-separated)">
+            <input type="submit" value="Add to the site">
+        </form>
+
+        <!-- Iterate over posts to display in the table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Author</th>
+                    <th>Tags</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% posts.forEach(post => { %>
+                    <tr>
+                        <td><%= post.name %></td>
+                        <td><img src="<%= post.imageLink %>" alt="Photo"></td>
+                        <td><%= post.author %></td>
+                        <td>
+                            <% const tagsArray = post.tags ? post.tags.split(',') : []; %>
+                            <% tagsArray.forEach(tag => { %>
+                                <span class="tag"><%= tag.trim() %></span>
+                            <% }); %>
+                        </td>
+                        <td>
+                            <form action="/admin/update/<%= post.id %>" method="post">
+                                <input type="text" name="newAuthor" placeholder="New Author">
+                                <input type="text" name="newTags" placeholder="New Tags (comma-separated)">
+                                <input type="submit" value="Update">
+                            </form>
+                            <form action="/admin/delete/<%= post.id %>" method="post">
+                                <input type="submit" value="Delete">
+                            </form>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
