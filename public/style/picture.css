@@ -1,0 +1,69 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f9f9f9; /* Цвет фона страницы */
+}
+
+.picture-container {
+    max-width: 800px; /* Максимальная ширина контейнера */
+    margin: 20px auto; /* Центрирование контейнера */
+    padding: 20px;
+    background-color: #fff; /* Цвет фона контейнера */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень контейнера */
+}
+
+.picture-container h1 {
+    font-size: 24px; /* Размер шрифта заголовка */
+    margin-bottom: 10px;
+}
+
+.picture-container img {
+    max-width: 100%; /* Максимальная ширина изображения */
+    height: auto; /* Автоматическая высота изображения */
+    display: block; /* Сделать изображение блочным элементом */
+    margin-bottom: 10px;
+    border-radius: 8px; /* Закругление углов изображения */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень изображения */
+}
+
+.picture-container p {
+    margin: 5px 0; /* Отступы абзацев */
+}
+
+.picture-container p.author {
+    font-weight: bold; /* Жирный шрифт для информации об авторе */
+}
+
+.picture-container p.tags {
+    font-style: italic; /* Курсивное начертание для тегов */
+    color: #666; /* Цвет текста тегов */
+}
+
+/* Дополнительные стили для комментариев */
+.comments {
+    margin-top: 20px;
+}
+
+.comment {
+background-color: #f9f9f9;
+padding: 10px;
+border-radius: 5px;
+margin-bottom: 10px;
+}
+
+.comment-text {
+font-size: 14px;
+color: #333;
+}
+
+.comment-author {
+font-size: 12px;
+color: #666;
+}
+
+.comment-date {
+font-size: 10px;
+color: #999;
+}
+  

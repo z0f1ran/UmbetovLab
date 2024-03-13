@@ -2,7 +2,6 @@ const express = require('express');
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 const config = require('./config');
-const ejs = require('ejs');
 
 const app = express();
 const port = 3000;
@@ -11,7 +10,6 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Подключение к MySQL
 const db = mysql.createConnection(config.database);
 
 db.connect((err) => {
@@ -22,17 +20,79 @@ db.connect((err) => {
   }
 });
 
-// Создание таблицы, если она не существует
-db.query(
-  'CREATE TABLE IF NOT EXISTS picture (id INT AUTO_INCREMENT PRIMARY KEY, author VARCHAR(255), name VARCHAR(255), imageLink VARCHAR(255), tags VARCHAR(255))',
+db.query(`
+  CREATE TABLE IF NOT EXISTS picture (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    author VARCHAR(255),
+    name VARCHAR(255),
+    imageLink VARCHAR(255),
+    tags VARCHAR(255)
+  )`, 
   (err) => {
     if (err) {
-      console.error('Error creating table:', err);
+      console.error('Error creating picture table:', err);
     } else {
-      console.log('Table created or already exists');
+      console.log('Picture table created or already exists');
     }
   }
 );
+
+db.query(`
+  CREATE TABLE IF NOT EXISTS comments (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    picture_id INT,
+    author VARCHAR(255),
+    text TEXT,
+    date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (picture_id) REFERENCES picture(id)
+  )`, 
+  (err) => {
+    if (err) {
+      console.error('Error creating comments table:', err);
+    } else {
+      console.log('Comments table created or already exists');
+    }
+  }
+);
+
+app.get('/picture/:id', (req, res) => {
+  const pictureId = req.params.id;
+  const pictureSql = 'SELECT * FROM picture WHERE id = ?';
+  const commentsSql = 'SELECT * FROM comments WHERE picture_id = ?';
+  db.query(pictureSql, [pictureId], (err, pictureResult) => {
+      if (err) {
+          console.error('Error fetching picture from database:', err);
+          res.status(500).json({ error: 'Error fetching picture from database' });
+      } else {
+          db.query(commentsSql, [pictureId], (err, commentsResult) => {
+              if (err) {
+                  console.error('Error fetching comments from database:', err);
+                  res.status(500).json({ error: 'Error fetching comments from database' });
+              } else {
+                  res.render('picture', { picture: pictureResult[0], comments: commentsResult });
+              }
+          });
+      }
+  });
+});
+
+app.post('/picture/:id/comment', (req, res) => {
+  const pictureId = req.params.id;
+  const commentText = req.body.comment;
+
+  const sql = 'INSERT INTO comments (picture_id, text) VALUES (?, ?)';
+  const values = [pictureId, commentText];
+
+  db.query(sql, values, (err, result) => {
+    if (err) {
+      console.error('Error inserting comment into database:', err);
+      res.status(500).json({ error: 'Error inserting comment into database' });
+    } else {
+      res.redirect(`/picture/${pictureId}`);
+    }
+  });
+});
+
 
 // Handle form submissions
 app.post('/process', (req, res) => {
@@ -78,7 +138,7 @@ app.post('/pictures', (req, res) => {
 });
 
 // Чтение (Read)
-app.get('/pictures', (req, res) => {
+app.get('/', (req, res) => {
   db.query('SELECT * FROM picture', (err, data) => {
     if (err) {
       res.status(500).json({ error: err.message });
@@ -117,6 +177,7 @@ app.post('/admin/delete/:id', (req, res) => {
     }
   });
 });
+
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

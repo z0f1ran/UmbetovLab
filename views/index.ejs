@@ -37,7 +37,9 @@
             <% data.forEach(item => { %>
                 <div class="block-content">
                     <!-- вот изображение  -->
-                    <img class="block-img" src="<%= item.imageLink %>" alt="<%= item.name %>">
+                    <a href="/picture/<%= item.id %>">
+                        <img class="block-img" src="<%= item.imageLink %>" alt="<%= item.name %>">
+                    </a>
                     <div class="meta-block">
                         <div class="left-content">
                             <!-- вот имя автора  -->
@@ -49,17 +51,17 @@
                         </div>
                         <!-- вот теги --> 
                         <div class="tags">
-                            <p class="tag">#живопись</p>
-                            <p class="tag">#маслом</p>
-                            <p class="tag">#море</p>
-                            <p class="tag">#закат</p>
-                            <p class="tag">#пейзаж</p>
-                            <p class="tag">#иванов</p>
+                            <% if (Array.isArray(item.tags)) { %>
+                                <% item.tags.forEach(tag => { %>
+                                    <p class="tag"><%= tag %></p>
+                                <% }); %>
+                            <% } else { %>
+                                <p class="tag"><%= item.tags %></p>
+                            <% } %>
                         </div>
                     </div>   
                 </div>
             <% }); %>
-            
         </div>
     </div>
     <div class="footer">
